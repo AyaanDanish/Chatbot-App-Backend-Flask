@@ -25,6 +25,8 @@ jobs:
       Contents: |
         **\**
         !**\env\**
+        !**\.git\**
+        !**\__pycache__\**
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
   - task: PublishBuildArtifacts@1
