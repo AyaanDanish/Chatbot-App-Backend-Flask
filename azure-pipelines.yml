@@ -19,8 +19,16 @@ jobs:
   #     python -m unittest discover tests
   #   displayName: 'Run tests'
 
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.SourcesDirectory)'
+      Contents: |
+        **\**
+        !**\env\**
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
   - task: PublishBuildArtifacts@1
     inputs:
-      pathtoPublish: '$(System.DefaultWorkingDirectory)'
+      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
       artifactName: 'backend'
     displayName: 'Publish Artifact'
