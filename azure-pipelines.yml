@@ -6,14 +6,15 @@ jobs:
   displayName: 'Build Job'
   pool:
     name: Default 
-    
+
   steps:
   - script: |
       python -m venv env
-      source env/bin/activate
+      .\env\Scripts\activate
       pip install -r requirements.txt
     displayName: 'Install dependencies'
 
+  # Uncomment the following lines if you have tests to run
   # - script: |
   #     python -m unittest discover tests
   #   displayName: 'Run tests'
