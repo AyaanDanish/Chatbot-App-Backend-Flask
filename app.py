@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
+
 # from flask_cors import CORS
 import openai
 import tiktoken
@@ -23,6 +24,15 @@ token_limit = 4000
 @app.route("/", methods=["GET"])
 def home_page():
     return render_template("index.html")
+
+
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(
+        os.path.join(app.root_path, "static"),
+        "favicon.ico",
+        mimetype="image/vnd.microsoft.icon",
+    )
 
 
 def num_tokens_from_messages(messages, model="gpt-3.5-turbo"):
@@ -71,4 +81,4 @@ def chat():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host="0.0.0.0")
