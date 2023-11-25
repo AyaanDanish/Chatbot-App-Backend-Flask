@@ -53,6 +53,10 @@ stages:
         pytest
       workingDirectory: $(projectRoot)
       displayName: "Run Tests"
+      env:
+        API_KEY: $(API_KEY)
+        API_BASE: $(API_BASE)
+        DEPLOYMENT_ID: $(DEPLOYMENT_ID)
 
     - task: ArchiveFiles@2
       displayName: 'Archive files'
