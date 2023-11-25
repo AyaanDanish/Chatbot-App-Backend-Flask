@@ -44,9 +44,15 @@ stages:
         python -m pip install --upgrade pip
         pip install setup
         pip install -r requirements.txt
-        pytest
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
+
+    - task: TestProject
+      displayName: 'Test Project'
+
+    - script: pytest
+      workingDirectory: $(projectRoot)
+      displayName: "Run Tests"
 
     - task: ArchiveFiles@2
       displayName: 'Archive files'
