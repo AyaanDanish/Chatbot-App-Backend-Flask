@@ -47,9 +47,6 @@ stages:
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
 
-    - task: TestProject
-      displayName: 'Test Project'
-
     - script: pytest
       workingDirectory: $(projectRoot)
       displayName: "Run Tests"
