@@ -47,7 +47,9 @@ stages:
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
 
-    - script: pytest
+    - script: |
+        pip install pytest pytest-flask 
+        pytest
       workingDirectory: $(projectRoot)
       displayName: "Run Tests"
 
