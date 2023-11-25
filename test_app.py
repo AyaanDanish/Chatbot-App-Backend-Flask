@@ -1,6 +1,10 @@
 import pytest
 from flask import Flask
 from app import app, chat
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 @pytest.fixture
 def client():

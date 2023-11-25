@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, jsonify, send_from_directory
 
-# from flask_cors import CORS
 import openai
 import tiktoken
 from dotenv import load_dotenv
@@ -9,7 +8,6 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
-# CORS(app)
 
 openai.api_type = "azure"
 openai.api_version = "2023-08-01-preview"
