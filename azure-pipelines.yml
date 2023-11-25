@@ -48,7 +48,8 @@ stages:
       displayName: "Install requirements"
 
     - script: |
-        pip install pytest pytest-flask 
+        python -m venv antenv
+        source antenv/bin/activate 
         pytest
       workingDirectory: $(projectRoot)
       displayName: "Run Tests"
